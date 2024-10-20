@@ -9,8 +9,12 @@ if(NOT NUGET_EXE)
 	message(FATAL_ERROR "Please install this executable, and run CMake again.")
 endif()
 
-execute_process(COMMAND ${NUGET_EXE}
-    ARGS install "Microsoft.Windows.CppWinRT" -Version 	2.0.210503.1 -ExcludeVersion -OutputDirectory ${CMAKE_BINARY_DIR}/packages)
+execute_process(
+	COMMAND ${NUGET_EXE} install "Microsoft.Windows.CppWinRT"
+    	ARGS -Version 2.0.210503.1 -ExcludeVersion -OutputDirectory ${CMAKE_BINARY_DIR}/packages
+	RESULT_VARIABLE nuget_result
+	ERROR_VARIABLE nuget_error
+)
 ################ NuGet install end ################
 
 # This value is used when generating builds using this plugin, so it must
