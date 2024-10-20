@@ -10,7 +10,7 @@ if(NOT NUGET_EXE)
 endif()
 
 execute_process(
-	COMMAND ${NUGET_EXE} install "Microsoft.Windows.CppWinRT"
+	COMMAND nuget install "Microsoft.Windows.CppWinRT"
     	ARGS -Version 2.0.210503.1 -ExcludeVersion -OutputDirectory ${CMAKE_BINARY_DIR}/packages
 	RESULT_VARIABLE nuget_result
 	ERROR_VARIABLE nuget_error
